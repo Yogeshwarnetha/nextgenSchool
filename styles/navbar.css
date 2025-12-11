@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Hover underline animation */
+.hover-underline-animation {
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: black;
+  transform-origin: bottom right;
+  transition: transform 0.5s ease;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Nav link styles */
+.nav-link {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-30;
+}
+
+/* Custom scrollbar for dropdown if needed */
+.dropdown-scroll {
+  max-height: 250px;
+  scrollbar-width: thin;
+  scrollbar-color: #8373ce #f1f1f1;
+}
+
+/* Shrink effect for scrolled navbar */
+.logo-small {
+  @apply transition-all duration-300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-responsive-icon {
+    display: none;
+  }
+  
+  .mobile-nav-logo {
+    @apply flex justify-center items-center w-full;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-nav-toggle {
+    display: none !important;
+  }
+}
+
+/* Ensure proper spacing */
+.navbar-content {
+  @apply font-medium justify-evenly;
+}
+
+/* Custom shadow for navbar */
+.navbar-shadow {
+  box-shadow: 0 4px 10px rgba(131, 115, 206, 0.3);
+}
